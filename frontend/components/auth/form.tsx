@@ -71,9 +71,9 @@ const AuthForm = ({ type }: AuthFormProps) => {
       let success = false;
 
       if (type === 'login') {
-        success = await login(formData.email, formData.password);
+        success = !!(await login(formData.email, formData.password));
       } else {
-        success = await register(formData.name, formData.email, formData.password);
+        success = !!(await register(formData.name, formData.email, formData.password));
       }
 
       if (!success) {
